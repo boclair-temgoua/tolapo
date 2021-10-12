@@ -7,6 +7,8 @@ import {
 } from 'react-native';
 import { TextButton } from '../../components'
 import { FONTS, SIZES, COLORS } from '../../constants'
+import SvgUri from 'react-native-svg-uri';
+// import SuccessSvg from '../../../assets/icons/SuccessSvg.svg'
 
 const SuccessPasswordReset = ({ navigation, name }) => {
 
@@ -33,14 +35,12 @@ const SuccessPasswordReset = ({ navigation, name }) => {
 
                 }}
             >
-                <Image
-                    source={require('../../../assets/icons/success.png')}
+                <SvgUri
                     resizeMode='contain'
-                    style={{
-                        height: 130,
-                        width: 130,
-                        marginVertical: 10
-                    }}
+                    width="130"
+                    height="130"
+                    marginVertical="10"
+                    source={require('../../../assets/icons/success.svg')}
                 />
                 <Text style={{ marginTop: SIZES.padding, ...FONTS.h1 }}>
                     Success

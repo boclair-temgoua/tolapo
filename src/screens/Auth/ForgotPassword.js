@@ -127,7 +127,7 @@ const ForgotPassword = ({ navigation }) => {
                 </Text>
 
                 <TextButton
-                    label='Sign In'
+                    label='Login'
                     buttonContainerStyle={{
                         marginLeft: 3,
                         backgroundColor: null

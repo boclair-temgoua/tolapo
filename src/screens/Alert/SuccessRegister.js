@@ -9,7 +9,7 @@ import { TextButton } from '../../components'
 import { FONTS, SIZES, COLORS } from '../../constants'
 import SvgUri from 'react-native-svg-uri';
 
-const SuccessPage = ({ navigation, name }) => {
+const SuccessRegister = ({ navigation, name }) => {
 
 
     useEffect(() => {
@@ -45,10 +45,11 @@ const SuccessPage = ({ navigation, name }) => {
                     Success
                 </Text>
                 <Text style={{ textAlign: 'center', marginTop: SIZES.base, ...FONTS.body3, color: SIZES.darkGray }}>
-                    Email send successfully check your email address !
+                    Register successfully check your email address for confirmation!
                 </Text>
             </View>
 
+            {/* Button */}
             <View
                 style={{
                     paddingHorizontal: SIZES.padding,
@@ -56,13 +57,13 @@ const SuccessPage = ({ navigation, name }) => {
                 }}
             >
                 <TextButton
-                    label="Back to Home"
+                    label="Login"
                     buttonContainerStyle={{
                         height: 50,
                         borderRadius: SIZES.radius,
                         backgroundColor: COLORS.blue
                     }}
-                    onPress={() => navigation.navigate('Home')}
+                    onPress={() => navigation.navigate('Login')}
                 />
             </View>
 
@@ -70,4 +71,4 @@ const SuccessPage = ({ navigation, name }) => {
     );
 };
 
-export default SuccessPage;
+export default SuccessRegister;

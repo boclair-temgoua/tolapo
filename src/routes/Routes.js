@@ -16,7 +16,9 @@ import {
   StatusInfo,
   SuccessPage,
   SuccessPasswordReset,
-  UserDetail
+  UserDetail,
+  SuccessRegister,
+  ChangePassword
 } from '../screens'
 import Tabs from "./navigation/tabs";
 import { ENV_REACT_NATIVE_TOKEN } from '@env'
@@ -26,7 +28,7 @@ const Stack = createStackNavigator();
 
 const isUserLoggedIn = async () => JSON.parse(await AsyncStorage.getItem(`${ENV_REACT_NATIVE_TOKEN}`))
 
-export default function Routes() {
+const Routes = ({ props }) => {
 
   useEffect(() => {
 
@@ -49,30 +51,35 @@ export default function Routes() {
         <Stack.Screen
           name="Home"
           component={Tabs}
-          options={{ title : 'Welcome', gestureEnabled: false }}
+          options={{ title: 'Welcome', gestureEnabled: false }}
         />
 
         <Stack.Screen
           name="Login"
           component={Login}
-          options={{ title : 'Login' }}
+          options={{ title: 'Login' }}
         />
 
         <Stack.Screen
           name="Register"
           component={Register}
-          options={{ title : 'Register' }}
+          options={{ title: 'Register' }}
         />
 
         <Stack.Screen
           name="ForgotPassword"
           component={ForgotPassword}
-          options={{ title : 'Forgot Password' }}
+          options={{ title: 'Forgot Password' }}
         />
 
         <Stack.Screen
           name="StatusInfo"
           component={StatusInfo}
+        />
+
+        <Stack.Screen
+          name="ChangePassword"
+          component={ChangePassword}
         />
 
         <Stack.Screen
@@ -88,6 +95,12 @@ export default function Routes() {
         />
 
         <Stack.Screen
+          name="SuccessRegister"
+          component={SuccessRegister}
+          options={{ gestureEnabled: false }} // if success
+        />
+
+        <Stack.Screen
           name="Setting"
           component={Setting}
         />
@@ -95,7 +108,7 @@ export default function Routes() {
         <Stack.Screen
           name="UserDetail"
           component={UserDetail}
-          options={({route}) => ({ title: route.params.user})}
+          options={({ route }) => ({ title: route.params.user })}
         />
 
         {/* <Stack.Screen
@@ -106,3 +119,4 @@ export default function Routes() {
     </NavigationContainer>
   )
 }
+export default Routes

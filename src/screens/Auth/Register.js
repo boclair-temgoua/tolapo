@@ -15,7 +15,8 @@ import dyaxios from './apiAuth'
 
 
 const schema = yup.object().shape({
-    fullName: yup.string().required().min(3).max(200),
+    firstName: yup.string().required().min(3).max(200),
+    lastName: yup.string().required().min(3).max(200),
     email: yup.string().email().required().min(3).max(200),
     password: yup.string().required().min(8).max(200),
     confirmPassword: yup.string().required().min(8).max(200)
@@ -34,7 +35,7 @@ const Register = ({ navigation }) => {
         try {
             const response = await dyaxios.register(data)
             if (response) {
-                navigation.navigate('Login');
+                navigation.navigate('SuccessRegister');
             }
 
         } catch (error) { setMessage(error.response.data.message) }
@@ -67,8 +68,8 @@ const Register = ({ navigation }) => {
                     control={control}
                     render={({ field: { onChange, onBlur, value } }) => (
                         <FormInput
-                            label="Full name"
-                            placeholder='Full name'
+                            label="First name"
+                            placeholder='First name'
                             autoCapitalize="none"
                             onBlur={onBlur}
                             onChangeText={onChange}
@@ -80,7 +81,27 @@ const Register = ({ navigation }) => {
                             }}
                         />
                     )}
-                    name="fullName"
+                    name="firstName"
+                    defaultValue=""
+                />
+                <Controller
+                    control={control}
+                    render={({ field: { onChange, onBlur, value } }) => (
+                        <FormInput
+                            label="Last name"
+                            placeholder='Last name'
+                            autoCapitalize="none"
+                            onBlur={onBlur}
+                            onChangeText={onChange}
+                            value={value}
+                            errorMsg={errors.lastName?.message}
+                            autoCorrect={true}
+                            containerStyle={{
+                                marginTop: SIZES.radius
+                            }}
+                        />
+                    )}
+                    name="lastName"
                     defaultValue=""
                 />
                 <Controller
@@ -161,12 +182,32 @@ const Register = ({ navigation }) => {
                             onBlur={onBlur}
                             onChangeText={onChange}
                             value={value}
-                            secureTextEntry={true}
+                            secureTextEntry={!showPass}
                             autoCorrect={false}
                             errorMsg={errors.confirmPassword?.message}
                             containerStyle={{
                                 marginTop: SIZES.radius
                             }}
+                            appendComponent={
+                                <TouchableOpacity
+                                    style={{
+                                        width: 40,
+                                        alignItems: 'flex-end',
+                                        justifyContent: 'center'
+                                    }}
+                                    onPress={() => setShowPass(!showPass)}
+                                >
+                                    <Image
+                                        source={showPass ? icons.eye_close : icons.eye}
+                                        style={{
+                                            height: 20,
+                                            width: 20,
+                                            tintColor: COLORS.green
+                                        }}
+                                    />
+
+                                </TouchableOpacity>
+                            }
                         />
                     )}
                     name="confirmPassword"

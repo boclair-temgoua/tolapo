@@ -9,7 +9,10 @@ import StatusInfo from './StatusInfo'
 import Favorites from "./Favorite/Favorites"
 import Search from "./Search/Search"
 import Setting from "./Setting/Setting"
+import Notification from "./Notification/Notification"
 import SuccessPasswordReset from "./Alert/SuccessPasswordReset"
+import SuccessRegister from './Alert/SuccessRegister'
+import ChangePassword from './Auth/ChangePassword'
 
 
 export {
@@ -23,5 +26,8 @@ export {
     UserDetail,
     ForgotPassword,
     SuccessPage,
+    Notification,
     SuccessPasswordReset,
+    SuccessRegister,
+    ChangePassword,
 }

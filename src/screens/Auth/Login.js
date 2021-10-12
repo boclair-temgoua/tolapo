@@ -16,8 +16,8 @@ import dyaxios from './apiAuth'
 
 
 const schema = yup.object().shape({
-    email: yup.string().email().required().min(3).max(200),
-    password: yup.string().required().min(6).max(200)
+    // email: yup.string().email().required().min(3).max(200),
+    // password: yup.string().required().min(6).max(200)
 })
 
 const Login = ({ navigation }) => {
@@ -31,13 +31,13 @@ const Login = ({ navigation }) => {
         try {
             const response = await dyaxios.login(data)
             if (response) {
-                if (response.data.accessToken) {
-                    if (response.data.accessToken != null) {
-                        await AsyncStorage.setItem(`${ENV_REACT_NATIVE_TOKEN}`, JSON.stringify(response.data.accessToken))
-                        console.log(await AsyncStorage.setItem('response', JSON.stringify(response.data.accessToken)))
-                        navigation.navigate('Home');
-                    }
-                }
+                // if (response.data.accessToken) {
+                //     if (response.data.accessToken != null) {
+                //         await AsyncStorage.setItem(`${ENV_REACT_NATIVE_TOKEN}`, JSON.stringify(response.data.accessToken))
+                //         console.log(await AsyncStorage.setItem('response', JSON.stringify(response.data.accessToken)))
+                //         navigation.navigate('Home');
+                //     }
+                // }
             }
         } catch (error) { setMessage(error.response.data.message) }
     }

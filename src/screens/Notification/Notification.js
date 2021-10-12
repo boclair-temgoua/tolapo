@@ -6,13 +6,9 @@ import { TextButton } from '../../components'
 import { FONTS, SIZES, COLORS } from '../../constants'
 
 
-const Setting = ({ navigation }) => {
+const Notification = ({ navigation }) => {
     return (
-        <View style={{
-            flex: 1,
-            justifyContent: 'center',
-            alignItems: 'center'
-        }}>
+        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
             <View
                 style={{
                     flexDirection: 'row',
@@ -21,7 +17,7 @@ const Setting = ({ navigation }) => {
                 }}
             >
                 <TextButton
-                    label='Change password'
+                    label='Notification Page'
                     buttonContainerStyle={{
                         backgroundColor: null
                     }}
@@ -29,7 +25,7 @@ const Setting = ({ navigation }) => {
                         color: COLORS.gray,
                         ...FONTS.body4
                     }}
-                    onPress={() => navigation.navigate('ChangePassword')}
+                    onPress={() => navigation.navigate('NotificationDetail')}
 
                 />
             </View>
@@ -37,4 +33,4 @@ const Setting = ({ navigation }) => {
     )
 }
 
-export default Setting;
+export default Notification;

@@ -6,7 +6,7 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs"
 import { COLORS, icons } from '../../constants'
 import { TabIcon } from '../../components'
 
-import { Home, Search, Favorites, Setting } from "../../screens"
+import { Home, Search, Favorites, Setting, Notification } from "../../screens"
 
 const Tab = createBottomTabNavigator()
 
@@ -49,10 +49,10 @@ const Tabs = () => {
                 }}
             />
             <Tab.Screen
-                name="Profile"
-                component={Home}
+                name="Notification"
+                component={Notification}
                 options={{
-                    tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.profile} />
+                    tabBarIcon: ({ focused }) => <TabIcon focused={focused} icon={icons.notification} />
                 }}
             />
             <Tab.Screen
